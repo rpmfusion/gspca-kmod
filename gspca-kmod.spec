@@ -18,7 +18,10 @@ Source0:        http://mxhaard.free.fr/spca50x/Download/%{tarball_name}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 # needed for plague to make sure it builds for i586 and i686
-ExclusiveArch:  i586 i686 x86_64 ppc ppc64
+ExclusiveArch:  i586 i686 x86_64 ppc64
+# ppc disabled by knurd on 20081003 as it is known to fail on 2.6.26: 
+# https://bugzilla.redhat.com/show_bug.cgi?id=464613
+
 # get the needed BuildRequires (in parts depending on what we build for)
 BuildRequires:  %{_bindir}/kmodtool
 %{!?kernels:BuildRequires: buildsys-build-rpmfusion-kerneldevpkgs-%{?buildforkernels:%{buildforkernels}}%{!?buildforkernels:current}-%{_target_cpu} }
@@ -65,6 +68,7 @@ rm -rf $RPM_BUILD_ROOT
 %changelog
 * Thu Oct 02 2008 Thorsten Leemhuis <fedora[AT]leemhuis[DOT]info> - 1.00.20-30
 - build for rpmfusion
+- disable ppc
 
 * Sun May 04 2008 Thorsten Leemhuis <fedora[AT]leemhuis[DOT]info> - 1.00.20-4
 - build for f9
