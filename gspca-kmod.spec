@@ -9,7 +9,7 @@
 
 Name:           gspca-kmod
 Version:        1.00.20
-Release:        30%{?dist}.1
+Release:        30%{?dist}.2
 Summary:        gspca Webcam Kernel Module
 Group:          System Environment/Kernel
 License:        GPLv2+
@@ -18,9 +18,7 @@ Source0:        http://mxhaard.free.fr/spca50x/Download/%{tarball_name}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 # needed for plague to make sure it builds for i586 and i686
-ExclusiveArch:  i586 i686 x86_64 ppc64
-# ppc disabled by knurd on 20081003 as it is known to fail on 2.6.26: 
-# https://bugzilla.redhat.com/show_bug.cgi?id=464613
+ExclusiveArch:  i586 i686 x86_64 ppc ppc64
 
 # get the needed BuildRequires (in parts depending on what we build for)
 BuildRequires:  %{_bindir}/kmodtool
@@ -66,6 +64,9 @@ done
 rm -rf $RPM_BUILD_ROOT
 
 %changelog
+* Thu Oct 23 2008 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info> - 1.00.20-30.2
+- rebuild for latest kernel; enable ppc again
+
 * Thu Oct 02 2008 Thorsten Leemhuis <fedora[AT]leemhuis[DOT]info> - 1.00.20-30
 - build for rpmfusion
 - disable ppc
