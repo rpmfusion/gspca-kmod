@@ -9,7 +9,7 @@
 
 Name:           gspca-kmod
 Version:        1.00.20
-Release:        30%{?dist}.2
+Release:        30%{?dist}.3
 Summary:        gspca Webcam Kernel Module
 Group:          System Environment/Kernel
 License:        GPLv2+
@@ -64,6 +64,9 @@ done
 rm -rf $RPM_BUILD_ROOT
 
 %changelog
+* Tue Jan 06 2009 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info> - 1.00.20-30.3
+- rebuild for latest Fedora kernel;
+
 * Thu Oct 23 2008 Thorsten Leemhuis <fedora [AT] leemhuis [DOT] info> - 1.00.20-30.2
 - rebuild for latest kernel; enable ppc again
 
